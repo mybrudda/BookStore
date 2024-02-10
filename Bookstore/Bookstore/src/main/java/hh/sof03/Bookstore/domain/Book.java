@@ -1,14 +1,24 @@
 package hh.sof03.Bookstore.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
 
-    String title;
-    String author;
-    String publicationYear;
-    String isbn;
-    String price;
 
-    public Book(String title, String author, String publicationYear, String isbn, String price) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String title;
+    private String author;
+    private int publicationYear;
+    private String isbn;
+    private double price;
+
+    public Book(String title, String author, int publicationYear, String isbn, double price) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -19,9 +29,13 @@ public class Book {
     public Book() {
         this.title = null;
         this.author = null;
-        this.publicationYear = null;
+        this.publicationYear = 0;
         this.isbn = null;
-        this.price = null;
+        this.price = 0;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -32,7 +46,7 @@ public class Book {
         return author;
     }
 
-    public String getPublicationYear() {
+    public int getPublicationYear() {
         return publicationYear;
     }
 
@@ -40,7 +54,7 @@ public class Book {
         return isbn;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -52,7 +66,7 @@ public class Book {
         this.author = author;
     }
 
-    public void setPublicationYear(String publicationYear) {
+    public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
     }
 
@@ -60,7 +74,7 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
