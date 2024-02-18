@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 
 import hh.sof03.Bookstore.domain.Book;
 import hh.sof03.Bookstore.domain.BookRepository;
+import hh.sof03.Bookstore.domain.Category;
+import hh.sof03.Bookstore.domain.CategoryRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -20,7 +22,7 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-public CommandLineRunner demo(BookRepository repository) {
+public CommandLineRunner demo(BookRepository repository, CategoryRepository cRepository) {
     return (args) -> {
         // Your code...add some demo data to db
         Book a = new Book("Harry Potter", "JK Rowling", 2001, "AGD53B", 23.56);
@@ -31,11 +33,18 @@ public CommandLineRunner demo(BookRepository repository) {
         repository.save(a);
         repository.save(b);
         repository.save(c);
+
+
+        Category first =  new Category("Fiction");
+        Category second = new Category("Fantasy");
+        Category third = new Category("Adventure");
+
+        log.info("save a couple categories");
+        cRepository.save(first);
+        cRepository.save(second);
+        cRepository.save(third);
     
-        log.info("fetch all books");
-        for(Book book: repository.findAll()){
-            log.info(book.toString());
-        }
+        
     };
 }
 

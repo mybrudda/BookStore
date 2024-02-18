@@ -1,48 +1,74 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Add Book</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h1>Add a book</h1>
+      <h1>Add a book</h1>
 
-        <form th:object="${book}" th:action="@{save}" action="#" method="post">
+      <form th:object="${book}" th:action="@{save}" action="#" method="post">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            th:field="*{title}"
+            class="form-control"
+          />
+        </div>
 
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" id="title" th:field="*{title}" class="form-control"/>
-            </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input
+            type="text"
+            id="author"
+            th:field="*{author}"
+            class="form-control"
+          />
+        </div>
 
-            <div class="form-group">
-                <label for="author">Author</label>
-                <input type="text" id="author" th:field="*{author}" class="form-control"/>
-            </div>
+        <div class="form-group">
+          <label for="pubYear">Publication year</label>
+          <input
+            type="text"
+            id="pubYear"
+            th:field="*{publicationYear}"
+            class="form-control"
+          />
+        </div>
 
-            <div class="form-group">
-                <label for="pubYear">Publication year</label>
-                <input type="text" id="pubYear" th:field="*{publicationYear}" class="form-control"/>
-            </div>
+        <div class="form-group">
+          <label for="isbn">ISBN</label>
+          <input
+            type="text"
+            id="isbn"
+            th:field="*{isbn}"
+            class="form-control"
+          />
+        </div>
 
-            <div class="form-group">
-                <label for="isbn">ISBN</label>
-                <input type="text" id="isbn" th:field="*{isbn}" class="form-control"/>
-            </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="text"
+            id="price"
+            th:field="*{price}"
+            class="form-control"
+          />
+        </div>
 
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="text" id="price" th:field="*{price}" class="form-control"/>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Save</button>
-
-        </form>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/booklist" class="btn btn-danger btn-sm">Check booklist</a>
+      </form>
     </div>
 
-    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
