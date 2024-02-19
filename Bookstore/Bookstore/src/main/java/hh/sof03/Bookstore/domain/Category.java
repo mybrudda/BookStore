@@ -8,22 +8,26 @@ import jakarta.persistence.Id;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long categoryId;
+    private long id;
     String name;
  
-    // kontruktorit
+    
+    public Category(){
+
+    }
+    
     public Category(String name) {
         
         this.name = name;
     }
  
     // getterit
-    public long getCategoryId() {
-        return categoryId;
+    public long getId() {
+        return id;
     }
  
-    public void setCategoryId(long categoryId) {
-        this.categoryId = categoryId;
+    public void setId(long categoryId) {
+        this.id = categoryId;
     }
  
     // Setterit
@@ -38,7 +42,7 @@ public class Category {
     // toString
     @Override
     public String toString() {
-        return "Category [categoryId=" + categoryId + ", name=" + name + "]";
+        return "Category [categoryId=" + id + ", name=" + name + "]";
     }
  
 }
