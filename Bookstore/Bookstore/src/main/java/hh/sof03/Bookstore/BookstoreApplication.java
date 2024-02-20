@@ -25,25 +25,25 @@ public class BookstoreApplication {
 public CommandLineRunner demo(BookRepository repository, CategoryRepository cRepository) {
     return (args) -> {
         // Your code...add some demo data to db
-        Book a = new Book("Harry Potter", "JK Rowling", 2001, "AGD53B", 23.56);
-        Book b = new Book("Legend of Ahmed", "Bilal Kahmi", 1967, "NDS836", 34.90);
-        Book c = new Book("Games People Play", "Robert Kazumi", 2010, "BKF49U", 50.99);
-    
-        log.info("save a couple of books");
-        repository.save(a);
-        repository.save(b);
-        repository.save(c);
+        
 
 
         Category first =  new Category("Fiction");
         Category second = new Category("Fantasy");
-        Category third = new Category("Adventure");
+
 
         log.info("save a couple categories");
         cRepository.save(first);
         cRepository.save(second);
-        cRepository.save(third);
+
     
+        Book a = new Book("Harry Potter", "JK Rowling", 2001, "AGD53B", 23.56, cRepository.findByName("Fiction").get(0));
+        Book b = new Book("Legend of Ahmed", "Bilal Kahmi", 1967, "NDS836", 34.90, cRepository.findByName("Fantasy").get(0));
+
+    
+        log.info("save a couple of books");
+        repository.save(a);
+        repository.save(b);
         
     };
 }

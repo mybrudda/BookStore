@@ -64,6 +64,14 @@
           />
         </div>
 
+        <div class="form-group">
+          <label for="categoryList">Category</label>
+          <select id="categoryList" th:field="*{category}" class="form-control">
+              <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+          </select>
+      </div>
+        
+
         <button type="submit" class="btn btn-primary">Save</button>
         <a href="/booklist" class="btn btn-danger btn-sm">Check booklist</a>
       </form>
