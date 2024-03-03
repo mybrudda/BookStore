@@ -24,7 +24,7 @@ public class BookstoreApplication {
 	@Bean
 public CommandLineRunner demo(BookRepository repository, CategoryRepository cRepository) {
     return (args) -> {
-        // Your code...add some demo data to db
+        
         
 
 
