@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import hh.sof03.Bookstore.domain.Book;
 import hh.sof03.Bookstore.domain.BookRepository;
@@ -53,5 +54,10 @@ public class BookController {
     public String save(Book book){
         repository.save(book);
         return "redirect:booklist";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
     }
 }
